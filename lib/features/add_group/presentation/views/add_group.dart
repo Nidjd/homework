@@ -1,75 +1,21 @@
-import 'package:final_project/core/widgets/custom_text_form_field.dart';
-import 'package:final_project/features/add_group/presentation/views/widgets/add_group_button.dart';
-import 'package:final_project/features/add_group/presentation/views/widgets/user_list_view.dart';
-import 'package:final_project/generated/l10n.dart';
+import 'package:final_project/core/utils/service_locator.dart';
+import 'package:final_project/core/utils/shared_pref.dart';
+import 'package:final_project/features/add_group/data/repository/get_users_repo/get_users_repo_impl.dart';
+import 'package:final_project/features/add_group/presentation/manager/get_users_cubit/get_users_cubit.dart';
+import 'package:final_project/features/add_group/presentation/views/widgets/add_group_body.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AddGroupScreen extends StatefulWidget {
+class AddGroupScreen extends StatelessWidget {
   const AddGroupScreen({super.key});
-
-  @override
-  State<AddGroupScreen> createState() => _AddGroupScreenState();
-}
-
-class _AddGroupScreenState extends State<AddGroupScreen> {
-  final TextEditingController _groupNameController = TextEditingController();
-
-  final List<int> selectedUsers = [];
-
-  final List<Map<String, String>> users = [
-    {"id": "1", "name": "User 1", "email": "user1@example.com"},
-    {"id": "2", "name": "User 2", "email": "user2@example.com"},
-    {"id": "3", "name": "User 3", "email": "user3@example.com"},
-  ];
-
-  @override
-  void dispose() {
-    _groupNameController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 30),
-            CustomTextFormField(
-              validator: (value) {
-            if (value == null || value.isEmpty) {
-              return S.of(context).groupNameRequired;
-            }
-            return "";
-        },
-              controller: _groupNameController,
-              label: S.of(context).groupName,
-            ),
-            const SizedBox(height: 20),
-            Expanded(
-              child: UserListView(
-                users: users,
-                selectedUsers: selectedUsers,
-                onSelectUser: (userId) {
-                  if (selectedUsers.contains(int.parse(userId))) {
-                    selectedUsers.remove(int.parse(userId));
-                  } else {
-                    selectedUsers.add(int.parse(userId));
-                  }
-                },
-              ),
-            ),
-            const SizedBox(height: 20),
-            AddGroupButton(onAddGroup: () {
-              // منطق الإضافة هنا
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(S.of(context).add)),
-              );
-            }),
-          ],
-        ),
+      body: BlocProvider(
+        create: (context) => GetUsersCubit(getIt.get<GetUsersRepoImpl>())
+          ..getUsers(token: prefs.getString('token')!),
+        child: const AddGroupBody(),
       ),
     );
   }

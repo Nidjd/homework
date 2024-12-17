@@ -1,4 +1,3 @@
-
 import 'package:final_project/core/widgets/center_logo.dart';
 import 'package:final_project/features/register/presentation/views/widgets/login_prompt.dart';
 import 'package:final_project/features/register/presentation/views/widgets/register_form.dart';

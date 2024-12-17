@@ -29,5 +29,11 @@
     "codeRequired":"الكود مطلوب",
     "groupNameRequired":"اسم المجموعة مطلوب",
     "english":"اللغة الانكليزية",
-    "arabic":"اللغة العربية"
+    "arabic":"اللغة العربية",
+    "noUsersSelected":"لم يتم اختيار الأعضاء",
+    "searchUsers":"البحث عن المستخدمين",
+    "open":"فتح",
+    "status":"الحالة",
+     "showRequests":"عرض الطلبات",
+     "showUsers":"عرض المستخدمين"
 }

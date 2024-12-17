@@ -29,5 +29,11 @@
     "codeRequired":"code is required",
     "groupNameRequired":"name is required",
     "english":"English",
-    "arabic":"Arabic"
+    "arabic":"Arabic",
+    "noUsersSelected":"No users Selected",
+    "searchUsers":"search users",
+    "open":"Open",
+    "status":"Status",
+    "showRequests":"Show Requests",
+    "showUsers":"Show Users"
 }

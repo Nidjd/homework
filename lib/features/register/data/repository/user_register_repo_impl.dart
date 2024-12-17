@@ -15,13 +15,12 @@ class UserRegisterRepoImpl implements UserRegisterRepo {
       required String email,
       required String password}) async {
     try {
-      
       var data = await _apiService.register(
         email: email,
         name: name,
         password: password,
       );
-     
+
       UserRegisterModel userRegisterModel = UserRegisterModel.fromJson(data);
       return right(userRegisterModel);
     } catch (e) {

@@ -62,7 +62,8 @@ class RegisterFormState extends State<RegisterForm> {
           const SizedBox(height: 10),
           CustomTextFormField(
             controller: _email,
-            label: S.of(context).email, validator: (value) {
+            label: S.of(context).email,
+            validator: (value) {
               if (value == null || value.isEmpty) {
                 return S.of(context).emailRequired;
               } else {
@@ -89,7 +90,8 @@ class RegisterFormState extends State<RegisterForm> {
             child: RegisterButton(
               nameController: _name,
               emailController: _email,
-              passwordController: _password, formKey: formKey,
+              passwordController: _password,
+              formKey: formKey,
             ),
           ),
         ],

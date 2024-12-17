@@ -13,38 +13,38 @@ ThemeData lightMode = ThemeData(
     iconTheme: IconThemeData(color: Colors.white),
   ),
   textTheme: const TextTheme(
-  bodyLarge: TextStyle(color: AppColors.lightTextColor, fontSize: 16), 
-  bodyMedium: TextStyle(color: AppColors.lightTextColor, fontSize: 14), 
-  headlineLarge: TextStyle(color: AppColors.lightTextColor, fontSize: 24, fontWeight: FontWeight.bold),
-  headlineSmall: TextStyle(color: AppColors.lightTextColor, fontSize: 18), 
-  labelSmall: TextStyle(color: AppColors.lightSecondaryColor, fontSize: 12), 
-),
-
+    bodyLarge: TextStyle(color: AppColors.lightTextColor, fontSize: 16),
+    bodyMedium: TextStyle(color: AppColors.lightTextColor, fontSize: 14),
+    headlineLarge: TextStyle(
+        color: AppColors.lightTextColor,
+        fontSize: 24,
+        fontWeight: FontWeight.bold),
+    headlineSmall: TextStyle(color: AppColors.lightTextColor, fontSize: 18),
+    labelSmall: TextStyle(color: AppColors.lightSecondaryColor, fontSize: 12),
+  ),
   colorScheme: const ColorScheme.light(
     surface: AppColors.lightBackgroundColor,
     primary: AppColors.lightPrimaryColor,
     secondary: AppColors.lightSecondaryColor,
     error: AppColors.lightErrorColor,
-    onPrimary: Colors.white, 
+    onPrimary: Colors.white,
     onSurface: AppColors.lightTextColor,
   ),
   buttonTheme: const ButtonThemeData(
-  buttonColor: AppColors.lightButtonColor, // Primary button color
-  disabledColor: AppColors.lightBorderColor, // Disabled button color
-  textTheme: ButtonTextTheme.primary, // Text follows primary theme color
-  highlightColor: AppColors.lightAccentColor, // Highlight color on interaction
-),
-
-  dividerColor: AppColors.lightBorderColor,
-
-  elevatedButtonTheme: ElevatedButtonThemeData(
-  style: ButtonStyle(
-    backgroundColor: WidgetStateProperty.all(AppColors.lightButtonColor),
-    foregroundColor: WidgetStateProperty.all(AppColors.lightTextColor),
-    overlayColor: WidgetStateProperty.all(AppColors.lightAccentColor),
+    buttonColor: AppColors.lightButtonColor, // Primary button color
+    disabledColor: AppColors.lightBorderColor, // Disabled button color
+    textTheme: ButtonTextTheme.primary, // Text follows primary theme color
+    highlightColor:
+        AppColors.lightAccentColor, // Highlight color on interaction
   ),
-),
-
+  dividerColor: AppColors.lightBorderColor,
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ButtonStyle(
+      backgroundColor: WidgetStateProperty.all(AppColors.lightButtonColor),
+      foregroundColor: WidgetStateProperty.all(AppColors.lightTextColor),
+      overlayColor: WidgetStateProperty.all(AppColors.lightAccentColor),
+    ),
+  ),
 );
 
 /// Dark Mode Theme
@@ -59,10 +59,12 @@ ThemeData darkTheme = ThemeData(
     iconTheme: IconThemeData(color: Colors.white),
   ),
   textTheme: const TextTheme(
-
     bodyLarge: TextStyle(color: AppColors.darkTextColor, fontSize: 16),
     bodyMedium: TextStyle(color: AppColors.darkTextColor, fontSize: 14),
-    headlineLarge: TextStyle(color: AppColors.darkTextColor, fontSize: 24, fontWeight: FontWeight.bold),
+    headlineLarge: TextStyle(
+        color: AppColors.darkTextColor,
+        fontSize: 24,
+        fontWeight: FontWeight.bold),
     headlineSmall: TextStyle(color: AppColors.darkTextColor, fontSize: 18),
     labelSmall: TextStyle(color: AppColors.darkSecondaryColor, fontSize: 12),
   ),
@@ -75,19 +77,17 @@ ThemeData darkTheme = ThemeData(
     onSurface: AppColors.darkTextColor,
   ),
   buttonTheme: const ButtonThemeData(
-  buttonColor: AppColors.darkButtonColor, // Primary button color
-  disabledColor: AppColors.darkBorderColor, // Disabled button color
-  textTheme: ButtonTextTheme.primary, // Text follows primary theme color
-  highlightColor: AppColors.darkAccentColor, // Highlight color on interaction
-),
-
+    buttonColor: AppColors.darkButtonColor, // Primary button color
+    disabledColor: AppColors.darkBorderColor, // Disabled button color
+    textTheme: ButtonTextTheme.primary, // Text follows primary theme color
+    highlightColor: AppColors.darkAccentColor, // Highlight color on interaction
+  ),
   dividerColor: AppColors.darkBorderColor,
   elevatedButtonTheme: ElevatedButtonThemeData(
-  style: ButtonStyle(
-    backgroundColor: WidgetStateProperty.all(AppColors.darkButtonColor),
-    foregroundColor: WidgetStateProperty.all(AppColors.darkTextColor),
-    overlayColor: WidgetStateProperty.all(AppColors.darkAccentColor),
+    style: ButtonStyle(
+      backgroundColor: WidgetStateProperty.all(AppColors.darkButtonColor),
+      foregroundColor: WidgetStateProperty.all(AppColors.darkTextColor),
+      overlayColor: WidgetStateProperty.all(AppColors.darkAccentColor),
+    ),
   ),
-),
-
 );

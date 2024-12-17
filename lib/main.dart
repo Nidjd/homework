@@ -9,17 +9,41 @@ import 'package:final_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
+
+Future<void> setupNotifications() async {
+  const AndroidInitializationSettings initializationSettingsAndroid =
+      AndroidInitializationSettings('@mipmap/ic_launcher');
+  const InitializationSettings initializationSettings =
+      InitializationSettings(android: initializationSettingsAndroid);
+  await flutterLocalNotificationsPlugin.initialize(initializationSettings);
+  const AndroidNotificationChannel channel = AndroidNotificationChannel(
+    'download_channel', // نفس المعرف المستخدم في الإشعارات
+    'File Downloads',
+    description: 'Shows progress of file downloads',
+    importance: Importance.low,
+  );
+
+  flutterLocalNotificationsPlugin
+      .resolvePlatformSpecificImplementation<
+          AndroidFlutterLocalNotificationsPlugin>()
+      ?.createNotificationChannel(channel);
+}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await setupNotifications();
   setupServiceLocator();
   Bloc.observer = MyBlocObserver();
   await initSharedPrefernce();
-  
+
   // استرجاع القيم المحفوظة في SharedPreferences
   bool isDarkMode = prefs.getBool('isDarkMode') ?? false;
   String savedLanguage = prefs.getString('language') ?? 'en';
-  
+
   runApp(MyApp(locale: Locale(savedLanguage), isDarkMode: isDarkMode));
 }
 
@@ -34,7 +58,8 @@ class MyApp extends StatelessWidget {
       providers: [
         // مزود إدارة اللغة
         BlocProvider(
-          create: (context) => LanguageCubit()..changeLanguage(locale.languageCode),
+          create: (context) =>
+              LanguageCubit()..changeLanguage(locale.languageCode),
         ),
         // مزود إدارة الوضع الليلي
         BlocProvider(

@@ -1,10 +1,9 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:final_project/features/users/presentation/views/widgets/user_model.dart';
+import 'package:final_project/features/users/data/models/get_users_in_group_model/user.dart';
 import 'package:final_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class UserListItem extends StatelessWidget {
-  final UserModel user;
+  final User user;
 
   const UserListItem({required this.user, super.key});
 
@@ -24,38 +23,47 @@ class UserListItem extends StatelessWidget {
           ),
         ],
       ),
-      child: ListTile(
-        leading: CircleAvatar(
-          backgroundColor: Theme.of(context).colorScheme.surface,
-          child: CachedNetworkImage(
-            imageUrl: user.imageUrl,
-            placeholder: (context, url) => CircularProgressIndicator(
-              color: Theme.of(context).colorScheme.primary,
-            ),
-            errorWidget: (context, url, error) =>
-                Icon(Icons.error, color: Theme.of(context).colorScheme.error),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          // القسم الأيسر: الاسم والبريد الإلكتروني
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                user.name.toString(),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
+              const SizedBox(height: 4), // مسافة صغيرة بين النصوص
+              Text(
+                user.email.toString(),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: Theme.of(context)
+                          .textTheme
+                          .bodyMedium
+                          ?.color
+                          ?.withOpacity(0.7),
+                    ),
+              ),
+            ],
           ),
-        ),
-        title: Text(
-          user.name,
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
-        ),
-        subtitle: Text(
-          user.email,
-          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: Theme.of(context)
-                    .textTheme
-                    .bodyMedium
-                    ?.color
-                    ?.withOpacity(0.7),
-              ),
-        ),
-        trailing: Text(
-          "${S.of(context).historyOfJoin} ${user.joinDate}",
-          style: Theme.of(context).textTheme.bodyMedium,
-        ),
+          // القسم الأيمن: تاريخ الانضمام
+          Flexible(
+            child: Text(
+              "${S.of(context).historyOfJoin} ${user.createdAt}",
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.end,
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+          ),
+        ],
       ),
     );
   }

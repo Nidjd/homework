@@ -1,7 +1,8 @@
+import 'package:final_project/features/add_group/data/models/get_users_model/user.dart';
 import 'package:flutter/material.dart';
 
 class UserTile extends StatelessWidget {
-  final Map<String, String> user;
+  final User user;
   final bool isSelected;
 
   const UserTile({
@@ -32,7 +33,7 @@ class UserTile extends StatelessWidget {
               ? Theme.of(context).colorScheme.primary
               : Theme.of(context).colorScheme.surface,
           child: Text(
-            user["id"]!,
+            "${user.id}",
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                   color: isSelected
                       ? Theme.of(context).colorScheme.onPrimary
@@ -41,7 +42,7 @@ class UserTile extends StatelessWidget {
           ),
         ),
         title: Text(
-          user["name"]!,
+          "${user.name}",
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 color: isSelected
                     ? Theme.of(context).colorScheme.primary
@@ -49,7 +50,7 @@ class UserTile extends StatelessWidget {
               ),
         ),
         subtitle: Text(
-          user["email"]!,
+          "${user.email}",
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                 color: Theme.of(context)
                     .textTheme

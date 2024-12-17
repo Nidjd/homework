@@ -359,6 +359,66 @@ class S {
       args: [],
     );
   }
+
+  /// `No users Selected`
+  String get noUsersSelected {
+    return Intl.message(
+      'No users Selected',
+      name: 'noUsersSelected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `search users`
+  String get searchUsers {
+    return Intl.message(
+      'search users',
+      name: 'searchUsers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Open`
+  String get open {
+    return Intl.message(
+      'Open',
+      name: 'open',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Status`
+  String get status {
+    return Intl.message(
+      'Status',
+      name: 'status',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show Requests`
+  String get showRequests {
+    return Intl.message(
+      'Show Requests',
+      name: 'showRequests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show Users`
+  String get showUsers {
+    return Intl.message(
+      'Show Users',
+      name: 'showUsers',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

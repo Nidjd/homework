@@ -1,11 +1,12 @@
-
 import 'package:final_project/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
     super.key,
-    required this.controller, required this.label, required this.validator,
+    required this.controller,
+    required this.label,
+    required this.validator,
   });
 
   final TextEditingController controller;

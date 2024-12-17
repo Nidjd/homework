@@ -53,12 +53,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "next": MessageLookupByLibrary.simpleMessage("Next"),
         "noGroupsAvailable":
             MessageLookupByLibrary.simpleMessage("no group available"),
+        "noUsersSelected":
+            MessageLookupByLibrary.simpleMessage("No users Selected"),
+        "open": MessageLookupByLibrary.simpleMessage("Open"),
         "or": MessageLookupByLibrary.simpleMessage("OR"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordRequired":
             MessageLookupByLibrary.simpleMessage("password is required"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "resendCode": MessageLookupByLibrary.simpleMessage("Resend Code"),
+        "searchUsers": MessageLookupByLibrary.simpleMessage("search users"),
+        "showRequests": MessageLookupByLibrary.simpleMessage("Show Requests"),
+        "showUsers": MessageLookupByLibrary.simpleMessage("Show Users"),
+        "status": MessageLookupByLibrary.simpleMessage("Status"),
         "verification":
             MessageLookupByLibrary.simpleMessage("Enter Verification Code"),
         "welcome": MessageLookupByLibrary.simpleMessage("Welcome back")

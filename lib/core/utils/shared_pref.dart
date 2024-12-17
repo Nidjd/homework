@@ -5,7 +5,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 late final SharedPreferences prefs;
 
 Future<void> initSharedPrefernce() async {
- 
   prefs = await SharedPreferences.getInstance();
 }
 

@@ -54,9 +54,7 @@ class _LoginBodyState extends State<LoginBody> {
             LoginForm(
               emailController: _emailController,
               passwordController: _passwordController,
-              onPressed: () {
-                
-              },
+              onPressed: () {},
             ),
             const SizedBox(height: 40),
             BlocConsumer<UserLoginCubit, UserLoginState>(
@@ -64,7 +62,7 @@ class _LoginBodyState extends State<LoginBody> {
                 if (state is UserLoginSuccess) {
                   setToSharedPreference(
                     key: 'token',
-                    token: state.userLoginModel.token!,
+                    token: state.userLoginModel.accessToken!,
                   );
                   GoRouter.of(context).push(AppRouter.kGroupPage);
                 } else if (state is UserLoginFailure) {

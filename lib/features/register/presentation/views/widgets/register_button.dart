@@ -35,20 +35,21 @@ class RegisterButton extends StatelessWidget {
               backgroundColor: Colors.green,
             ),
           );
-            setToSharedPreference(key: 'token',token: state.registerModel.token!);
+          setToSharedPreference(
+              key: 'token', token: state.registerModel.token!);
           if (emailController.text.isNotEmpty) {
-                  GoRouter.of(context).push(
-                    AppRouter.kVerifyCodePage,
-                    extra: emailController.text,
-                  );
-                } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(S.of(context).emailRequired),
-                      backgroundColor: Colors.red,
-                    ),
-                  );
-                }
+            GoRouter.of(context).push(
+              AppRouter.kVerifyCodePage,
+              extra: emailController.text,
+            );
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(S.of(context).emailRequired),
+                backgroundColor: Colors.red,
+              ),
+            );
+          }
         } else if (state is RegisterFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
@@ -68,47 +69,46 @@ class RegisterButton extends StatelessWidget {
         return Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            state is RegisterFailure ?
-              ErrorWidgetWithRetry(
-                errorMessage: state.errMessage,
-                onRetry: () {
-                  context.read<RegisterCubit>().register(
-                        name: nameController.text.trim(),
-                        email: emailController.text.trim(),
-                        password: passwordController.text.trim(),
-                      );
-                },
-              ) :
-            MaterialButton(
-              onPressed: () {
-                if (formKey.currentState!.validate()) {
-                 
-                  context.read<RegisterCubit>().register(
-                        name: nameController.text.trim(),
-                        email: emailController.text.trim(),
-                        password: passwordController.text.trim(),
-                      );
-                } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(S.of(context).invalidInput),
+            state is RegisterFailure
+                ? ErrorWidgetWithRetry(
+                    errorMessage: state.errMessage,
+                    onRetry: () {
+                      context.read<RegisterCubit>().register(
+                            name: nameController.text.trim(),
+                            email: emailController.text.trim(),
+                            password: passwordController.text.trim(),
+                          );
+                    },
+                  )
+                : MaterialButton(
+                    onPressed: () {
+                      if (formKey.currentState!.validate()) {
+                        context.read<RegisterCubit>().register(
+                              name: nameController.text.trim(),
+                              email: emailController.text.trim(),
+                              password: passwordController.text.trim(),
+                            );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(S.of(context).invalidInput),
+                          ),
+                        );
+                      }
+                    },
+                    color: theme.colorScheme.primary,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6),
                     ),
-                  );
-                }
-              },
-              color: theme.colorScheme.primary,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(6),
-              ),
-              minWidth: 120,
-              child: Text(
-                S.of(context).register,
-                style: TextStyle(
-                  color: theme.colorScheme.onPrimary,
-                  fontSize: 20,
-                ),
-              ),
-            ),
+                    minWidth: 120,
+                    child: Text(
+                      S.of(context).register,
+                      style: TextStyle(
+                        color: theme.colorScheme.onPrimary,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(

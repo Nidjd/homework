@@ -51,12 +51,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "next": MessageLookupByLibrary.simpleMessage("التالي"),
         "noGroupsAvailable":
             MessageLookupByLibrary.simpleMessage("لا يوجد مجموعة متاحة"),
+        "noUsersSelected":
+            MessageLookupByLibrary.simpleMessage("لم يتم اختيار الأعضاء"),
+        "open": MessageLookupByLibrary.simpleMessage("فتح"),
         "or": MessageLookupByLibrary.simpleMessage("أو"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "passwordRequired":
             MessageLookupByLibrary.simpleMessage("كلمة المرور مطلوبة"),
         "register": MessageLookupByLibrary.simpleMessage("تسجيل"),
         "resendCode": MessageLookupByLibrary.simpleMessage("إعادة إرسال الكود"),
+        "searchUsers":
+            MessageLookupByLibrary.simpleMessage("البحث عن المستخدمين"),
+        "showRequests": MessageLookupByLibrary.simpleMessage("عرض الطلبات"),
+        "showUsers": MessageLookupByLibrary.simpleMessage("عرض المستخدمين"),
+        "status": MessageLookupByLibrary.simpleMessage("الحالة"),
         "verification": MessageLookupByLibrary.simpleMessage("ادخل كود التحقق"),
         "welcome": MessageLookupByLibrary.simpleMessage("مرحبا بالعودة")
       };

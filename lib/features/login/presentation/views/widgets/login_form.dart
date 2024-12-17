@@ -20,26 +20,26 @@ class LoginForm extends StatelessWidget {
       children: [
         CustomTextFormField(
           validator: (value) {
-              if (value == null || value.isEmpty) {
-                return S.of(context).emailRequired;
-              } else {
-                return null;
-              }
-            },
+            if (value == null || value.isEmpty) {
+              return S.of(context).emailRequired;
+            } else {
+              return null;
+            }
+          },
           controller: emailController,
           label: S.of(context).email,
         ),
         const SizedBox(height: 10),
         CustomTextFormField(
           validator: (value) {
-              if (value == null || value.isEmpty) {
-                return S.of(context).passwordRequired;
-              } else {
-                return null;
-              }
-            },
+            if (value == null || value.isEmpty) {
+              return S.of(context).passwordRequired;
+            } else {
+              return null;
+            }
+          },
           controller: passwordController,
-          label: S.of(context).password, 
+          label: S.of(context).password,
         ),
         TextButton(
           onPressed: onPressed,

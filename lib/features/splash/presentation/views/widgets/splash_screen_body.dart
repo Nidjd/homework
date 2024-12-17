@@ -16,7 +16,7 @@ class SplashScreenBody extends StatelessWidget {
         scale: _animation,
         child: Image.asset(
           AssetsData.logo,
-          height:120,
+          height: 120,
           width: 120,
         ),
       ),

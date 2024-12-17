@@ -1,4 +1,3 @@
-
 import 'package:final_project/constants.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -20,7 +19,7 @@ abstract class Styles {
   static const textStyle30 = TextStyle(
     fontSize: 30,
     fontWeight: FontWeight.normal,
-    fontFamily: kGtSectraFine,  // Custom font
+    fontFamily: kGtSectraFine, // Custom font
   );
 
   // Smaller text style for more compact content, like labels or captions.
@@ -60,14 +59,14 @@ abstract class Styles {
     fontWeight: FontWeight.w400,
     color: CupertinoColors.activeBlue, // Typical link color
   );
-  
+
   // A text style for captions or footnotes with a subtle appearance.
   static const textStyleCaption = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.normal,
     color: CupertinoColors.inactiveGray, // Lighter gray for captions
   );
-  
+
   // Text style for error messages, with a red color.
   static const textStyleError = TextStyle(
     fontSize: 16,
